@@ -25,8 +25,8 @@ set(FFMPEG_VERSION 4.2)
 set(FFMPEG_HASH SHA256=306bde5f411e9ee04352d1d3de41bd3de986e42e2af2a4c44052dce1ada26fb8)
 
 # https://www.libsdl.org/download-2.0.php
-set(SDL2_VERSION 2.0.8)
-set(SDL2_HASH SHA256=edc77c57308661d576e843344d8638e025a7818bff73f8fbfab09c3c5fd092ec)
+set(SDL2_VERSION 2.0.9)
+set(SDL2_HASH SHA256=255186dc676ecd0c1dbf10ec8a2cc5d6869b5079d8a38194c2aecdff54b324b1)
 
 # https://github.com/bulletphysics/bullet3/releases
 set(BULLET_VERSION 2.88)
@@ -45,8 +45,8 @@ set(OSG_VERSION 3.6.5)
 set(OSG_HASH SHA256=aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12)
 
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION bbca1f3d1d9456b8ace3f8e3598c1e192d33aea1)
-set(OPENMW_HASH SHA256=fa02eca1a266e587b8373328e339a9737a241f8cba1b20328814e27f945c0943)
+set(OPENMW_VERSION 50abbbae0c44985d1ea8ff2d1765cc28b199ad8a)
+set(OPENMW_HASH SHA256=0cfdbc2077f1a5cf046e996b6aae731b9e86680d0ad63625391daa88abc47510)
 
 # End of configurable options
 
@@ -271,8 +271,8 @@ ExternalProject_Add(sdl2
 	URL_HASH ${SDL2_HASH}
 	DOWNLOAD_DIR ${download_dir}
 
-	PATCH_COMMAND patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/sdl2-android-gamepad.patch
-	COMMAND cp ${CMAKE_SOURCE_DIR}/patches/sdl2-SDL_gamecontrollerdb.h <SOURCE_DIR>/src/joystick/SDL_gamecontrollerdb.h
+#	PATCH_COMMAND patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/sdl2-android-gamepad.patch
+#	COMMAND cp ${CMAKE_SOURCE_DIR}/patches/sdl2-SDL_gamecontrollerdb.h <SOURCE_DIR>/src/joystick/SDL_gamecontrollerdb.h
 
 	CONFIGURE_COMMAND ""
 
@@ -281,6 +281,7 @@ ExternalProject_Add(sdl2
 
 	INSTALL_COMMAND mkdir -p ${prefix}/lib/
 	COMMAND cp libs/${app_abi}/libSDL2.so ${prefix}/lib/
+	COMMAND cp libs/${app_abi}/libhidapi.so ${prefix}/lib/
 	COMMAND cp -r <SOURCE_DIR>/include ${prefix}/
 )
 
