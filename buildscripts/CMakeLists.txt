@@ -45,8 +45,8 @@ set(OSG_VERSION 3.6.5)
 set(OSG_HASH SHA256=aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12)
 
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION 6f406b91a49bd31c0fb993278e60f2c9a39d6607)
-set(OPENMW_HASH SHA256=b850142b5af86f875896f89e6c0134f110ee0a8c56545e8fa75f9e8336b4614d)
+set(OPENMW_VERSION 534ac1647cb758626da6a5a67479c23b6541975f)
+set(OPENMW_HASH SHA256=441c4ee5e74b8b42ef2fdc771f19208f3fceafb8bdb4bb4ffb68c2b24c4e438b)
 
 # End of configurable options
 
@@ -270,6 +270,8 @@ ExternalProject_Add(sdl2
 	https://github.com/xyzz/openmw-deps/releases/download/v0/SDL2-${SDL2_VERSION}.tar.gz
 	URL_HASH ${SDL2_HASH}
 	DOWNLOAD_DIR ${download_dir}
+
+	PATCH_COMMAND patch -d <SOURCE_DIR> -p1 -t -N < ${CMAKE_SOURCE_DIR}/patches/sdl2-android-120hz-gyroscope.patch
 
 	CONFIGURE_COMMAND ""
 
