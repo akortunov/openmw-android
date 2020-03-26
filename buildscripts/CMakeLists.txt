@@ -45,8 +45,8 @@ set(OSG_VERSION 3.6.5)
 set(OSG_HASH SHA256=aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12)
 
 # https://github.com/OpenMW/openmw/commits/master
-set(OPENMW_VERSION d782f16de79f3e973d0bfe27ef7065aa7c216ea1)
-set(OPENMW_HASH SHA256=aa0626b5f48ab887d042de85800e01b7dadad648dde6bcda01dca72c736b54ec)
+set(OPENMW_VERSION b5bd70c91ab620c42ccb1a482b32bb2426464aa2)
+set(OPENMW_HASH SHA256=2c39878f2efbfbafd67a1b42a9bca35c562ff3de84850d1e5f90fae322e81949)
 
 # End of configurable options
 
